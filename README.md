@@ -318,25 +318,10 @@ When both agents learn simultaneously (Exp 7: DQN vs DQN), even with 5-round loo
 
 ### Why Deep Q-Network?
 - **Continuous State Space:** Our 5D weighted state vector can't use traditional Q-tables
-- **Generalization:** Neural network generalizes across similar opponent patterns
-- **Experience Replay:** Breaks temporal correlations in sequential game data
-- **Function Approximation:** Learns underlying patterns rather than memorizing states
-
-### State Vector Design Rationale
-**Why 5 bins?**
-- Balance between temporal resolution and state space size
-- Enough granularity to detect strategy changes
-- Small enough for efficient learning
 
 **Why recency weighting?**
 - Recent behavior more predictive than distant history
-- Exponential weighting (5×, 4×, 3×, 2×, 1×) gives 66% weight to most recent 40% of history
 - Helps agent react to opponent strategy shifts
-
-**Why weighted steal rate?**
-- Compact representation (single value per bin vs full history)
-- Normalization across different game lengths
-- Interpretable: Higher values = more stealing
 
 ### Curiosity-Driven Exploration
 Traditional epsilon decay:
@@ -385,7 +370,8 @@ else:
 4. **5-round lookahead:** Optimal horizon - shows retaliation consequences without obscuring signal
 
 ### Potential Improvements:
-We are considering a multi-agent environment and modifying the state vector to only include the last few decisions to see if the TFT strategy emerges.
+1. We are considering a multi-agent environment and modifying the state vector to only include the last few decisions to see if the TFT strategy emerges.
+2. Considering how to change the state vector into something more reflective of this situation. Some options are a single value to record previous moves, a vector recording only the last 10 moves, or other ways to record the history of the opponent and the player.
 
 ---
 
