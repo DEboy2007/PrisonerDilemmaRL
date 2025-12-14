@@ -11,6 +11,7 @@ A comprehensive exploration of Deep Q-Network (DQN) agents learning to navigate 
 - [Comparative Summary](#comparative-summary)
 - [Technical Deep Dive](#technical-deep-dive)
 - [Lessons Learned](#lessons-learned)
+- [Potential Improvements](#potential-improvements)
 
 ## Overview
 
@@ -369,7 +370,7 @@ else:
 3. **Recency-weighted state:** Recent opponent behavior more predictive than distant history
 4. **5-round lookahead:** Optimal horizon - shows retaliation consequences without obscuring signal
 
-### Potential Improvements:
+## Potential Improvements:
 1. We are considering a multi-agent environment and modifying the state vector to only include the last few decisions to see if the TFT strategy emerges.
 2. Considering how to change the state vector into something more reflective of this situation. Some options are a single value to record previous moves, a vector recording only the last 10 moves, or other ways to record the history of the opponent and the player.
 
